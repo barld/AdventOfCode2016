@@ -3,3 +3,4 @@
 #load "load-references-debug.fsx"
 #load "../AssemblyInfo.fs"
       "../Day1.fs"
+      "../Day2.fs"
