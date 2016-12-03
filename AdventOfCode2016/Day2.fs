@@ -30,3 +30,33 @@ let lines = sInput.Split('\n') |> Array.map Seq.toList
 let positions: (int*int) list = lines |> Array.fold (fun (acc: (int*int) list) (line: char list) -> (line |> List.fold goToNewPosition (acc |> List.head))::acc ) [(1,1)]  
 
 let code = positions |> List.take 5 |> List.rev |> List.fold (fun s (y, x) -> s + (keyPad.[y].[x])) ""
+
+//b
+let keyPadB: string[][] = 
+    [|
+        [|" ";" ";"1";" ";" "|];
+        [|" ";"2";"3";"4";" "|];
+        [|"5";"6";"7";"8";"9"|];
+        [|" ";"A";"B";"C";" "|];
+        [|" ";" ";"D";" ";" "|]
+    |]
+
+let goToNewPositionB (y, x) command =
+    let y', x' =
+        match command with
+        | 'U' -> y-1,x
+        | 'R' -> y, x+1
+        | 'D' -> y+1, x
+        | 'L' -> y, x-1
+        | _ -> failwith "usnsuported char"
+
+    let rf = (min 4) >> (max 0)
+    let diff = (fun a b -> abs(a-b))
+    if diff (rf y') 2 + diff (rf x') 2 > 2 then
+        y,x
+    else
+        rf y', rf x'
+
+let positionsB: (int*int) list = lines |> Array.fold (fun (acc: (int*int) list) (line: char list) -> (line |> List.fold goToNewPositionB (acc |> List.head))::acc ) [(2,0)]  
+
+let codeB = positionsB |> List.take 5 |> List.rev |> List.fold (fun s (y, x) -> s + (keyPadB.[y].[x])) ""
