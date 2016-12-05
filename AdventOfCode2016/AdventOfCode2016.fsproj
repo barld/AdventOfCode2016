@@ -53,10 +53,14 @@
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="Day1.fs" />
     <Compile Include="Day2.fs" />
+    <Compile Include="Day3.fs" />
     <None Include="Script.fsx" />
     <Content Include="packages.config" />
     <None Include="Scripts\load-references-debug.fsx" />
     <None Include="Scripts\load-project-debug.fsx" />
+    <Content Include="inputDay3.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />

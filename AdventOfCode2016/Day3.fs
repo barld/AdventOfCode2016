@@ -1,7 +1,4 @@
-﻿// Learn more about F# at http://fsharp.org. See the 'F# Tutorial' project
-// for more guidance on F# programming.
-
-#load "Scripts/load-project-debug.fsx"
+﻿module Day3
 
 open System
 
@@ -22,4 +19,3 @@ let parse (s:string) =
     isPossible res.[0] res.[1] res.[2]
 
 let answer = sInput |> Array.map parse |> Array.filter id |> Array.length
-
